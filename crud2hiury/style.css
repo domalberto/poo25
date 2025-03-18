@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    background-image: url('https://media.istockphoto.com/id/967254666/pt/foto/tyrannosaurus-rex-scene-3d-illustration.jpg?s=612x612&w=0&k=20&c=eZynRjpvUd1tT4KObVY5Z3u0YD9GxbnLzq6aTONsxcE=');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button.edit {
+    background-color: #5bc0de;
+}
+
+li button.edit:hover {
+    background-color: #31b0d5;
+}
+
+li button.delete {
+    background-color: #d9534f;
+}
+
+li button.delete:hover {
+    background-color: #c9302c;
+}
