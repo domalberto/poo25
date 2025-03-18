@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Nomes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciador de Nomes</h1>
+        
+        <div class="form-container">
+            <input type="text" id="nameInput" placeholder="Digite um nome">
+            <input type="hidden" id="editIndex" value="">
+            <button id="addButton">Adicionar</button>
+        </div>
 
+        <div class="list-container" id="nameList">
+            <!-- Names will be added here dynamically -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
