@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Processadores</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Gerenciamento de Processadores</h1>
+            <div class="background-control">
+                <input type="text" id="bgImageUrl" placeholder="Cole o URL da imagem de fundo">
+                <button onclick="changeBackground()" class="bg-change-btn">
+                    <i class="fas fa-image"></i> Mudar Fundo
+                </button>
+            </div>
+        </header>
 
+        <main>
+            <div class="form-container">
+                <h2>Cadastro de Processador</h2>
+                <form id="processorForm">
+                    <input type="hidden" id="processorId">
+                    <div class="form-group">
+                        <label for="modelo">Modelo:</label>
+                        <input type="text" id="modelo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="marca">Marca:</label>
+                        <input type="text" id="marca" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="frequencia">Frequência (GHz):</label>
+                        <div class="frequency-inputs">
+                            <input type="number" id="frequencia" step="0.1" min="0" placeholder="Frequência única" required>
+                            <div class="frequency-range hidden">
+                                <input type="number" id="frequenciaMin" step="0.1" min="0" placeholder="Mínima">
+                                <span>até</span>
+                                <input type="number" id="frequenciaMax" step="0.1" min="0" placeholder="Máxima">
+                            </div>
+                            <button type="button" class="toggle-freq-type" onclick="toggleFrequencyType()">
+                                <i class="fas fa-exchange-alt"></i> Alternar Tipo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nucleos">Número de Núcleos:</label>
+                        <input type="number" id="nucleos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="preco">Preço (R$):</label>
+                        <input type="number" id="preco" step="0.01" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" id="saveBtn">Salvar</button>
+                        <button type="button" id="cancelBtn" onclick="resetForm()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h2>Lista de Processadores</h2>
+                <table id="processorsTable">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Frequência</th>
+                            <th>Núcleos</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/db.js"></script>
+    <script src="js/crud.js"></script>
+</body>
+</html>
