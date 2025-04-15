@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciador de Games</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="games-list">Lista de Games</button>
+            <button class="tab-button" data-tab="search">Buscar Game</button>
+        </div>
+
+        <div class="tab-content active" id="games-list">
+            <div class="form-container">
+                <h2>Adicionar Novo Game</h2>
+                <form id="gameForm">
+                    <input type="text" id="gameTitle" placeholder="Título do Game" required>
+                    <input type="text" id="gameGenre" placeholder="Gênero" required>
+                    <textarea id="gameDescription" placeholder="Descrição" required></textarea>
+                    <textarea id="gameRequirements" placeholder="Requisitos Mínimos" required></textarea>
+                    <button type="submit">Adicionar Game</button>
+                </form>
+            </div>
+
+            <div class="games-container">
+                <h2>Games Cadastrados</h2>
+                <div id="gamesList"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="search">
+            <div class="search-container">
+                <h2>Buscar Game</h2>
+                <div class="search-form">
+                    <input type="text" id="searchInput" placeholder="Digite o nome do jogo">
+                    <button type="button" id="searchButton">Buscar Game</button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
