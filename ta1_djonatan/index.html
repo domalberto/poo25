@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer de Atividades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Timer de Atividades</h1>
+        
+        <div class="timer-container">
+            <div class="timer-display">
+                <span id="minutes">00</span>:<span id="seconds">00</span>
+            </div>
+            
+            <div class="timer-controls">
+                <input type="number" id="timeInput" min="1" placeholder="Minutos" value="25">
+                <button id="startBtn">Iniciar</button>
+                <button id="pauseBtn">Pausar</button>
+                <button id="stopBtn">Parar e Salvar</button>
+                <button id="resetBtn">Resetar</button>
+            </div>
+        </div>
+
+        <div class="risk-management">
+            <div class="risk-header-controls">
+                <h2>Matriz de Riscos</h2>
+                <div class="control-buttons">
+                    <button class="minimize-button" onclick="toggleRiskMatrix()">▼</button>
+                    <button class="maximize-button" onclick="toggleMaximize()">⤢</button>
+                </div>
+            </div>
+            <div class="info-bubble">
+                <button class="info-button" onclick="toggleInfo()">ℹ️</button>
+                <div class="info-content" id="riskInfo">
+                    <h3>Como usar a Matriz de Riscos</h3>
+                    <ul>
+                        <li><strong>Riscos Alto-Alto (Vermelho):</strong> Prioridade máxima. Requer ação imediata.</li>
+                        <li><strong>Riscos Médio-Alto e Alto-Médio (Amarelo):</strong> Prioridade alta. Planejar ações preventivas.</li>
+                        <li><strong>Riscos Baixo-Alto, Médio-Médio e Alto-Baixo (Verde):</strong> Monitorar regularmente.</li>
+                        <li><strong>Riscos Baixo-Médio e Médio-Baixo (Azul):</strong> Baixa prioridade.</li>
+                        <li><strong>Riscos Baixo-Baixo (Cinza):</strong> Risco aceitável.</li>
+                    </ul>
+                    <p>Dica: Atualize a matriz regularmente conforme novos riscos são identificados.</p>
+                </div>
+            </div>
+            <div class="risk-matrix">
+                <div class="risk-header">
+                    <div class="risk-cell">Probabilidade</div>
+                    <div class="risk-cell">Baixa</div>
+                    <div class="risk-cell">Média</div>
+                    <div class="risk-cell">Alta</div>
+                </div>
+                <div class="risk-row">
+                    <div class="risk-cell">Alto</div>
+                    <div class="risk-cell" data-risk="baixa-alto">
+                        <textarea placeholder="Descreva o risco...">Perda de dados das atividades por falha no salvamento</textarea>
+                    </div>
+                    <div class="risk-cell" data-risk="media-alto">
+                        <textarea placeholder="Descreva o risco...">Interrupção inesperada do timer durante atividades críticas</textarea>
+                    </div>
+                    <div class="risk-cell" data-risk="alta-alto">
+                        <textarea placeholder="Descreva o risco...">Falha no registro de tempo de atividades importantes</textarea>
+                    </div>
+                </div>
+                <div class="risk-row">
+                    <div class="risk-cell">Médio</div>
+                    <div class="risk-cell" data-risk="baixa-media">
+                        <textarea placeholder="Descreva o risco...">Dificuldade na visualização do timer em diferentes dispositivos</textarea>
+                    </div>
+                    <div class="risk-cell" data-risk="media-media">
+                        <textarea placeholder="Descreva o risco...">Erro na contagem regressiva do timer</textarea>
+                    </div>
+                    <div class="risk-cell" data-risk="alta-media">
+                        <textarea placeholder="Descreva o risco...">Problemas na sincronização entre diferentes usuários</textarea>
+                    </div>
+                </div>
+                <div class="risk-row">
+                    <div class="risk-cell">Baixo</div>
+                    <div class="risk-cell" data-risk="baixa-baixa">
+                        <textarea placeholder="Descreva o risco...">Preferências de usuário não salvas corretamente</textarea>
+                    </div>
+                    <div class="risk-cell" data-risk="media-baixa">
+                        <textarea placeholder="Descreva o risco...">Pequenos atrasos na atualização do display</textarea>
+                    </div>
+                    <div class="risk-cell" data-risk="alta-baixa">
+                        <textarea placeholder="Descreva o risco...">Problemas na visualização de notificações</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="current-activity-notification" id="currentActivityNotification">
+            <div class="notification-content">
+                <img id="notificationAvatar" src="" alt="Avatar" class="notification-avatar">
+                <div class="notification-text">
+                    <span id="notificationPerson"></span>
+                    <span id="notificationTask"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tasks-container">
+            <h2>Lista de Atividades</h2>
+            <div class="task-input">
+                <div class="avatar-selector">
+                    <img id="selectedAvatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=default" alt="Avatar">
+                    <div class="avatar-options">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar1" alt="Avatar 1" data-seed="avatar1">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar2" alt="Avatar 2" data-seed="avatar2">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar3" alt="Avatar 3" data-seed="avatar3">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar4" alt="Avatar 4" data-seed="avatar4">
+                    </div>
+                </div>
+                <input type="text" id="personInput" placeholder="Nome da pessoa" class="person-input">
+                <input type="text" id="taskInput" placeholder="Nova atividade">
+                <button id="addTaskBtn">Adicionar</button>
+            </div>
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
