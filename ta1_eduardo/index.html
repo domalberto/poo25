@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Livros</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Minha Biblioteca</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar livros...">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+    <main>
+        <section id="book-form">
+            <h2>Adicionar Livro</h2>
+            <form id="add-book-form">
+                <input type="text" id="book-title" placeholder="Título do Livro" required>
+                <input type="text" id="book-author" placeholder="Autor" required>
+                <textarea id="book-description" placeholder="Descrição"></textarea>
+                <button type="submit">Adicionar Livro</button>
+            </form>
+        </section>
+        <section id="book-categories">
+            <div class="category-tabs">
+                <button class="tab-button active" data-category="all">Todos</button>
+                <button class="tab-button" data-category="read">Lidos</button>
+                <button class="tab-button" data-category="unread">Não Lidos</button>
+                <button class="tab-button" data-category="favorites">Favoritos</button>
+            </div>
+            <div id="books-container" class="books-grid"></div>
+        </section>
+        <section id="book-details" class="hidden">
+            <div class="book-details-content">
+                <h2>Detalhes do Livro</h2>
+                <div id="book-info"></div>
+                <div id="purchase-info">
+                    <h3>Informações para Compra</h3>
+                    <div id="purchase-details"></div>
+                </div>
+                <button id="close-details"><i class="fas fa-times"></i></button>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html> 
