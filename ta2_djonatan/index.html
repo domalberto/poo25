@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer de Atividades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Timer de Atividades</h1>
+        
+        <div class="timer-container">
+            <div class="timer-display-container">
+                <div id="timerDisplay">
+                    <span id="minutes">00</span>:<span id="seconds">00</span>
+                </div>
+            </div>
+            <div id="totalTimeDisplay" class="total-time">Tempo Total: 00:00</div>
+            
+            <div class="timer-controls">
+                <input type="number" id="timeInput" min="1" placeholder="Minutos" value="25">
+                <button id="startBtn">Iniciar</button>
+                <button id="pauseBtn">Pausar</button>
+                <button id="stopBtn">Parar e Salvar</button>
+                <button id="resetBtn">Resetar</button>
+                <button id="toggleModeBtn">Modo Crescente</button>
+            </div>
+        </div>
+
+        
+
+        <div class="current-activity-notification" id="currentActivityNotification">
+            <div class="notification-content">
+                <img id="notificationAvatar" src="" alt="Avatar" class="notification-avatar">
+                <div class="notification-text">
+                    <span id="notificationPerson"></span>
+                    <span id="notificationTask"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tasks-container">
+            <h2>Lista de Atividades</h2>
+            <div class="task-input">
+                <div class="avatar-selector">
+                    <img id="selectedAvatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=default" alt="Avatar">
+                    <div class="avatar-options">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar1" alt="Avatar 1" data-seed="avatar1">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar2" alt="Avatar 2" data-seed="avatar2">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar3" alt="Avatar 3" data-seed="avatar3">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=avatar4" alt="Avatar 4" data-seed="avatar4">
+                    </div>
+                </div>
+                <input type="text" id="personInput" placeholder="Nome da pessoa" class="person-input">
+                <input type="text" id="taskInput" placeholder="Nova atividade">
+                <button id="addTaskBtn">Adicionar</button>
+            </div>
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
