@@ -9,7 +9,7 @@ const port = 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 // Conexão com o banco de dados
 const db = new sqlite3.Database('books.db', (err) => {
